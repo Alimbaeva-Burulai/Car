@@ -1,0 +1,33 @@
+﻿<Window x:Class="RaceCarÁdám_2.AddOrEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RaceCarÁdám_2"
+        xmlns:model="clr-namespace:RaceCarÁdám_2.Model"
+        mc:Ignorable="d"
+        Title="AddOrEditWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <model:RaceCar/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Label Content="Licence number" Padding="10" Background="LightBlue" />
+            <TextBox Text="{Binding LicenceNumber}" Padding="10" />
+            <Label Content="Model" Padding="10" Background="LightBlue" />
+            <TextBox Text="{Binding Model}" Padding="10" />
+            <Label Content="Price" Padding="10" Background="LightBlue" />
+            <TextBox Text="{Binding Price}" Padding="10" />
+            <Label Content="Brand" Padding="10" Background="LightBlue" />
+            <ComboBox x:Name="combo" ItemsSource="{Binding Brand}" />
+            <Label Content="{Binding MaxSpeed}" ContentStringFormat="Maxspeed: {0}" Padding="10" Background="LightBlue" />
+            <Slider Value="{Binding MaxSpeed}" Minimum="0" Maximum="500"/>
+            <Button Content="Ok" Click="Button_Click" Margin="20" Padding="10" />
+        </StackPanel>
+    </Grid>
+</Window>
